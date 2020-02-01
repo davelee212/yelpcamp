@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+
+<h1>this is the show template</h1>
+
+<P><strong>ID: </strong><%= campground._id %></P>
+<P><strong>Name: </strong><%= campground.name %></P>
+<P><img src="<%= campground.image %>"></P>
+<P><strong>Description: </strong><%= campground.description %></P>
+<P><strong>Comments: </strong></P>
+<% campground.comments.forEach( function(comment) {  %>
+    <p>
+        <strong><%= comment.author %></strong> -
+        <%= comment.text %>
+    </P>
+<% }); %>
+
+<%- include("partials/footer") %>

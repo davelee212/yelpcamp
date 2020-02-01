@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+
+<h1><%= campground.name %></h1>
+
+
+<P><img src="<%= campground.image %>"></P>
+<P><strong>Description: </strong><%= campground.description %></P>
+<P><strong>Comments (<a href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>) </strong></P>
+<% campground.comments.forEach( function(comment) {  %>
+    <p>
+        <strong><%= comment.author %></strong> -
+        <%= comment.text %> 
+        <% if (comment.timestamp) { %>
+            (<%= comment.timestamp.toString() %>)
+        <% } %>
+    </P>
+<% }); %>
+
+<%- include("../partials/footer") %>
